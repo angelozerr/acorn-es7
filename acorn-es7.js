@@ -14,7 +14,7 @@
     }
     
     var extendsAcorn = function (pp) {
-      var loose = pp == acorn.LooseParser.prototype;
+      var loose = pp == (acorn.LooseParser && acorn.LooseParser.prototype);
       
       pp.parseDecorator = function() {
         var node = this.startNode();
@@ -67,7 +67,7 @@
     // acorn 
     acorn.plugins.es7 = extendsAcorn(acorn.Parser.prototype);
     // acorn loose
-    acorn.pluginsLoose.es7 = extendsAcorn(acorn.LooseParser.prototype);
+    if(acorn.LooseParser) acorn.pluginsLoose.es7 = extendsAcorn(acorn.LooseParser.prototype);
     
     return acorn;
   }
