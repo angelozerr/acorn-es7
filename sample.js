@@ -1,7 +1,7 @@
 // Require acorn as usual
 var acorn = require("acorn");
 // Add the es7-plugin
-require('./acorn-es7').acornES7(acorn) ;
+require('./acorn-es7')(acorn) ;
 
 var code = "@Component()\n class AppComponent{}"; 
 var ast = acorn.parse(code,{

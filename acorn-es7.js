@@ -1,13 +1,26 @@
-(function(root, mod) {
-  if (typeof exports == "object" && typeof module == "object") // CommonJS
-    return mod(exports);
-  if (typeof define == "function" && define.amd) // AMD
-    return define(["exports"], mod);
-  mod(root || (root = {})); // Plain browser env
-})(this, function(exports) {
-  "use strict";
+(function(f) {
+  if (typeof exports === "object" && typeof module !== "undefined") {
+    module.exports = f(); // CommonJS
+  } else if (typeof define === "function" && define.amd) {
+    define([], f); // AMD
+  } else {
+    // Plain browser env
+    var g;
+    if (typeof window !== "undefined") {
+      g = window
+    } else if (typeof global !== "undefined") {
+      g = global
+    } else if (typeof self !== "undefined") {
+      g = self
+    } else {
+      g = this
+    }
+    g.acornES7 = f()
+  }
+})
+(function() {
 
-  exports.acornES7 = function(acorn) {
+  return function(acorn) {
     
     function getTokenType(p, loose) {
       return loose ? p.tok.type : p.type;
