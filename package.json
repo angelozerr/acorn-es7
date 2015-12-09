@@ -1,0 +1,23 @@
+{
+  "name": "acorn-es7",
+  "license": "MIT",
+  "version": "0.1.0",
+  "main": "acorn-es7.js",
+  "author": "Angelo ZERR <angelo.zerr@gmail.com>",
+  "description": "ES7 decorators support for Acorn.",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/angelozerr/acorn-es7.git"
+  },
+  "scripts": {
+    "test": "node ./test/all.js"
+  },
+  "dependencies": {
+    "acorn": "^2.6.4"
+  },
+  "keywords": [
+    "Acorn",
+    "ES7",
+    "Decorator"
+  ]
+}
